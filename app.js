@@ -51,6 +51,14 @@ const menuData = {
             image: "mojito.webp",
             category: "drinks"
         }
+          {
+            id: 6,
+            name: "Мохито",
+            description: "Освежающий коктейль с мятой",
+            price: 550,
+            image: "mojito.webp",
+            category: "drinks"
+        }
     ]
 };
 
