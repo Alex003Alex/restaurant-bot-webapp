@@ -18,7 +18,7 @@ const menuData = {
             name: "Паста Карбонара",
             description: "Классическая итальянская паста с беконом",
             price: 850,
-            image: "https://example.com/pasta.jpg",
+            image: "pasta.jpg",
             category: "hot"
         }
     ],
@@ -28,7 +28,7 @@ const menuData = {
             name: "Цезарь с курицей",
             description: "Свежий салат с куриным филе",
             price: 650,
-            image: "https://example.com/caesar.jpg",
+            image: "caesar.jpg",
             category: "cold"
         }
     ],
@@ -38,7 +38,7 @@ const menuData = {
             name: "Тирамису",
             description: "Классический итальянский десерт",
             price: 450,
-            image: "https://example.com/tiramisu.jpg",
+            image: "tiramisu.jpg",
             category: "desserts"
         }
     ],
@@ -48,7 +48,7 @@ const menuData = {
             name: "Мохито",
             description: "Освежающий коктейль с мятой",
             price: 550,
-            image: "https://example.com/mojito.jpg",
+            image: "mojito.webp",
             category: "drinks"
         }
     ]
