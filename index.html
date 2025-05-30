@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ресторан - Меню</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Наше Меню</h1>
+        </header>
+        
+        <div class="categories">
+            <button class="category-btn active" data-category="all">Все</button>
+            <button class="category-btn" data-category="hot">Горячие блюда</button>
+            <button class="category-btn" data-category="cold">Холодные закуски</button>
+            <button class="category-btn" data-category="desserts">Десерты</button>
+            <button class="category-btn" data-category="drinks">Напитки</button>
+        </div>
+
+        <div class="menu-items" id="menuItems">
+            <!-- Menu items will be loaded dynamically -->
+        </div>
+
+        <div class="cart">
+            <h2>Ваш заказ</h2>
+            <div id="cartItems"></div>
+            <div class="cart-total">
+                <span>Итого:</span>
+                <span id="totalPrice">0 ₽</span>
+            </div>
+            <button id="orderButton" class="order-btn">Оформить заказ</button>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html> 
