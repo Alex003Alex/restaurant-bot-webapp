@@ -10,7 +10,7 @@ const menuData = {
             name: "Стейк Рибай",
             description: "Сочный стейк из мраморной говядины",
             price: 2500,
-            image: "https://example.com/steak.jpg",
+            image: "https://i0.wp.com/i.iheart.com/v3/re/assets.getty/6255a1ab57d33b567a922de8?ssl=1",
             category: "hot"
         },
         {
