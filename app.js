@@ -66,6 +66,10 @@ const orderButton = document.getElementById('orderButton');
 
 // Initialize the app
 function init() {
+    if (!tg.initData) {
+        console.error("Telegram WebApp is not initialized. Check if the app is opened via Telegram.");
+        return;
+    }
     renderMenu('all');
     setupEventListeners();
 }
@@ -167,7 +171,7 @@ function updateCart() {
         total += itemTotal;
 
         const cartItem = document.createElement('div');
-        cartItem.className = 'cart-item';
+        cartItem.className = 'menu-item'; // Используем тот же класс для стилизации
         cartItem.innerHTML = `
             <div class="cart-item-info">
                 <h4>${item.name}</h4>
@@ -206,10 +210,35 @@ function submitOrder() {
         total: cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
     };
 
-    // Send data to Telegram bot
-    tg.sendData(JSON.stringify(order));
-    tg.close();
+    // Debug: Log the order data
+    console.log("Order being sent:", order);
+    console.log("Serialized order:", JSON.stringify(order));
+
+    // Show confirmation before sending
+    tg.showPopup({
+        title: "Подтверждение заказа",
+        message: `Итоговая сумма: ${order.total} ₽. Подтвердить заказ?`,
+        buttons: [
+            { id: "cancel", type: "cancel", text: "Отмена" },
+            { id: "confirm", type: "default", text: "Подтвердить" }
+        ]
+    }, (buttonId) => {
+        if (buttonId === "confirm") {
+            try {
+                tg.sendData(JSON.stringify(order));
+                console.log("Data sent successfully");
+                tg.showAlert("Заказ отправлен!");
+            } catch (error) {
+                console.error("Error sending data:", error);
+                tg.showAlert("Ошибка при отправке заказа: " + error.message);
+            }
+        } else {
+            console.log("Order cancelled by user");
+            tg.showAlert("Заказ отменен.");
+        }
+        tg.close();
+    });
 }
 
 // Initialize the app
-init(); 
+init();
